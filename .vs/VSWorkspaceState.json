@@ -3,8 +3,15 @@
     "",
     "\\back",
     "\\back\\back",
-    "\\projet_jpo_front"
+    "\\back\\back\\src",
+    "\\back\\back\\src\\main",
+    "\\back\\back\\src\\main\\java",
+    "\\back\\back\\src\\main\\java\\projet_jpo",
+    "\\back\\back\\src\\main\\java\\projet_jpo\\back",
+    "\\back\\back\\src\\main\\resources",
+    "\\projet_jpo_front",
+    "\\projet_jpo_front\\src"
   ],
-  "SelectedNode": "\\projet_jpo_front\\vite.config.js",
+  "SelectedNode": "\\back\\back\\src\\main\\java\\projet_jpo\\back\\BackApplication.java",
   "PreviewInSolutionExplorer": false
 }
