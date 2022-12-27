@@ -26,9 +26,9 @@ jobs:
           cache-dependency-path: ./projet_jpo_front/package-lock.json
 
       - run: npm install
-        working-directory: ./projet_jpo/projet_jpo_front
+        working-directory: ./projet_jpo_front
       - run : npm run test:unit
-        working-directory: ./projet_jpo/projet_jpo_front
+        working-directory: ./projet_jpo_front
 
       - name: Archive production artifacts
         uses: actions/upload-artifact@v3
