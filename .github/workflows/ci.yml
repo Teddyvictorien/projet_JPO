@@ -23,12 +23,12 @@ jobs:
         with:
           node-version: 16
           cache: npm
-          cache-dependency-path: ./projet_jpo/package-lock.json
+          cache-dependency-path: ./projet_jpo_front/package-lock.json
 
       - run: npm install
-        working-directory: ./vue-project
+        working-directory: ./projet_jpo/projet_jpo_front
       - run : npm run test:unit
-        working-directory: ./vue-project
+        working-directory: ./projet_jpo/projet_jpo_front
 
       - name: Archive production artifacts
         uses: actions/upload-artifact@v3
