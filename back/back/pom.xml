@@ -12,7 +12,7 @@
 	<artifactId>back</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>back</name>
-	<description>projet jpo spring</description>
+	<description>project jpo spring</description>
 	<properties>
 		<java.version>19</java.version>
 	</properties>
@@ -38,7 +38,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>projet_jpo</groupId>
+            <artifactId>back</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<plugins>
@@ -48,7 +53,7 @@
 				<configuration>
 					<excludes>
 						<exclude>
-							<groupId>org.projectlombok</groupId>
+							<groupId>org.project-lombok</groupId>
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
