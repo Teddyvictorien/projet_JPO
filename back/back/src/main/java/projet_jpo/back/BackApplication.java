@@ -1,32 +1,21 @@
 package projet_jpo.back;
 
-import com.google.auth.oauth2.GoogleCredentials;
-import com.google.cloud.firestore.Firestore;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
-import com.google.firebase.cloud.FirestoreClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import projet_jpo.back.firestore_config.Config;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Logger;
+
 
 @SpringBootApplication
 public class BackApplication {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
 		SpringApplication.run(BackApplication.class, args);
+        Config Conf = new Config();
+        Conf.InsertFirebase();
 
-
-// Use a service account
-		InputStream serviceAccount = new FileInputStream("path/to/serviceAccount.json");
-		GoogleCredentials credentials = GoogleCredentials.fromStream(serviceAccount);
-		FirebaseOptions options = new FirebaseOptions.Builder()
-				.setCredentials(credentials)
-				.build();
-		FirebaseApp.initializeApp(options);
-
-		Firestore db = FirestoreClient.getFirestore();
 	}
 }
