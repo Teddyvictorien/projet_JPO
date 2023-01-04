@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class ToDoListRepository {
-    protected List<QueryDocumentSnapshot> getAllToDoList() throws IOException, ExecutionException, InterruptedException {
+    public Iterable<CollectionReference> getAllToDoList() throws IOException {
 
         InputStream serviceAccount = new FileInputStream("projet-jpo-firebase-adminsdk-85z1d-1f1498429f(1).json");
         GoogleCredentials credentials = GoogleCredentials.fromStream(serviceAccount);
@@ -25,15 +25,12 @@ public class ToDoListRepository {
 
         Firestore db = FirestoreClient.getFirestore();
 
-        // asynchronously retrieve all documents
-        ApiFuture<QuerySnapshot> future = db.collection("todolist").get();
-// future.get() blocks on response
-        List<QueryDocumentSnapshot> documents = future.get().getDocuments();
-        return documents;
+        return db.listCollections();
 
     }
 
-    protected List<QueryDocumentSnapshot> getTodolist(String name) throws IOException, ExecutionException, InterruptedException
+
+    public List<QueryDocumentSnapshot> getTodolistContent(String ToDoListName) throws IOException, ExecutionException, InterruptedException
     {
         InputStream serviceAccount = new FileInputStream("projet-jpo-firebase-adminsdk-85z1d-1f1498429f(1).json");
         GoogleCredentials credentials = GoogleCredentials.fromStream(serviceAccount);
@@ -44,11 +41,9 @@ public class ToDoListRepository {
 
         Firestore db = FirestoreClient.getFirestore();
 
-        // asynchronously retrieve multiple documents
-        ApiFuture<QuerySnapshot> future = db.collection("todolist").whereEqualTo("titre", name).get();
-// future.get() blocks on response
-        List<QueryDocumentSnapshot> documents = future.get().getDocuments();
-
-        return documents;
+        // asynchronously retrieve all documents
+            ApiFuture<QuerySnapshot> future = db.collection(ToDoListName).get();
+        // future.get() blocks on response
+        return future.get().getDocuments();
     }
 }
