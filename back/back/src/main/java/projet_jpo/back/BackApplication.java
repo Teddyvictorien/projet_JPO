@@ -20,7 +20,7 @@ public class BackApplication {
 
 
 // Use a service account
-		InputStream serviceAccount = new FileInputStream("path/to/serviceAccount.json");
+		InputStream serviceAccount = new FileInputStream("");
 		GoogleCredentials credentials = GoogleCredentials.fromStream(serviceAccount);
 		FirebaseOptions options = new FirebaseOptions.Builder()
 				.setCredentials(credentials)
